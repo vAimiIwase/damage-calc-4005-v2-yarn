@@ -14,11 +14,11 @@
  * @param {Number} armorPenetration 防御力貫通
  * @return {Number} ダメージ
  */
-functino effectiveDamage(power, armor, armorPenetration) {
-  let effectiveArmor = normalize(armor) - normalize(armorPenetration);
-  effectiveArmor = effectiveArmor <= 0 ? 0 : effectiveArmor;
-  const damageDecrease = effectiveArmor / (100 + effectiveArmor);
-  return Math.round(normalize(power) * (1 - damageDecrease));
+function effectiveDamage(power, armor, armorPenetration) {
+    let effectiveArmor = normalize(armor) - normalize(armorPenetration);
+    effectiveArmor = effectiveArmor <= 0 ? 0 : effectiveArmor;
+    const damageDecrease = effectiveArmor / (100 + effectiveArmor);
+    return Math.round(normalize(power) * (1 - damageDecrease));
 }
 
 /**
@@ -27,15 +27,15 @@ functino effectiveDamage(power, armor, armorPenetration) {
  * @return {Number} 正常値
  */
 function normalize(n) {
-  if (n < 0) {
-    return 0;
-  } else if (n >= 2000) {
-    return 2000;
-  } else {
-    return n;
-  }
+    if (n < 0) {
+        return 0;
+    } else if (n >= 2000) {
+        return 2000;
+    } else {
+        return n;
+    }
 }
 
 module.exports = {
-  effectiveDamage: effectiveDamage
+    effectiveDamage: effectiveDamage
 };
